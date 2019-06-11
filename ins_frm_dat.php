@@ -123,7 +123,7 @@ if($ghrno == 'newform'){
       if($conn->query($sql_design)){
         //inserted into design itineraries
       }
-      $sql_notif = "UPDATE login SET notif_count =notif_count + 1 WHERE handle_type IN ('$holi_type','Both')";
+      $sql_notif = "UPDATE login SET notif_count = notif_count + 1 WHERE handle_type IN ('$holi_type','Both')";
       if($conn->query($sql_notif)){
         //updated notification
         //add redirect
@@ -131,7 +131,7 @@ if($ghrno == 'newform'){
     }
     else{
       //add code for creating an empty row
-      
+
     }
 }
 ?>
