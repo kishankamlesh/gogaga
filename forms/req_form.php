@@ -350,6 +350,12 @@ if($res_m_type->num_rows){
               </div>
             </div>
             <div class="form-group row">
+              <label for="t_dur" class="col-sm-2 col-form-label">Trip Duration:</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" name = "t_dur" id="t_dur" placeholder="Trip Duration">
+              </div>
+            </div>
+            <div class="form-group row">
               <label for="n_pass_a" class="col-sm-2 col-form-label">Number Of Travellers:</label>
               <div class="col-md-3">
                 <input type="text" class="form-control" name = "n_pass_a" id="n_pass_a" placeholder="Adults">
