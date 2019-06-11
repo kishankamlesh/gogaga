@@ -261,8 +261,8 @@ if($res_m_type->num_rows){
               <div class="col-sm-10">
                 <select class="custom-select" name="h_type" id = 'h_type'>
                   <option>Choose Holiday Type</option>
-                  <option value="p1">Domestic</option>
-                  <option value="p2">International</option>
+                  <option value="Domestic">Domestic</option>
+                  <option value="International">International</option>
                 </select>
               </div>
             </div>

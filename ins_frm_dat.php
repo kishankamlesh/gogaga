@@ -41,6 +41,7 @@ $h_type = test_input($_POST["h_type"]);
 $t_start_day = test_input($_POST["t_start_d"]);
 $t_start_month = test_input($_POST["t_start_m"]);
 $t_start_year = test_input($_POST["t_start_y"]);
+$t_duration = test_input($_POST["t_dur"]);
 $t_end_day = test_input($_POST["t_end_d"]);
 $t_end_month = test_input($_POST["t_end_m"]);
 $t_end_year = test_input($_POST["t_end_y"]);
@@ -81,6 +82,56 @@ if($ghrno == 'newform'){
                 no_of_infants,child_ages,travel_mode,travel_from,travel_to,type_hotel,acc_type,
                 no_rooms,additional_details,food_pref,specific_food_pref,
                 sight_pref,budget,lead_status,datesent)
-                VALUES ()";
+                VALUES ('$c_type','$pack_type','$name','$p_type','$p_loc','$p_name','','$c_fname','$c_lname','$c_phone','$c_ttc','$c_loc',
+                '$c_em','$t_origin','$t_dest','$h_type','$t_start_date','$t_end_date','$t_duration','$n_adults','$n_children','$n_infants',
+                '$c_age','$tr_mode','$t_from','$t_to','$hotel_st','$acc_type','$num_rooms','$additional_det','$food_pref','$sp_food_pref',
+                '$sight_s_pref','$budget','$l_status','$datesent')";
+    if($conn->query($sql_ins)){
+      //successful insertion
+      //now insert this ghrn into other tables
+      $sql_ref = "SELECT MAX(ref_num) AS max_no FROM agent_form_data WHERE contact_phone = '$c_phone'";
+      $res_ref = $conn->query($sql_ref);
+      if($res_ref->num_rows){
+        if($row_ref=$res_ref->fetch_assoc()){
+          $ref_num = $row_ref["max_no"];
+        }
+      }
+      $sno = '1';
+      if($h_type == 'Domestic'){
+        $sql_dom = "INSERT INTO itinerary_domestic (ghrnno) VALUES('$ref_num')";
+        if($conn->query($sql_dom)){
+          $sql_hotel = "INSERT INTO hotels_domestic (ghrno,sno) VALUES ('$ref_num',$sno)";
+          if($conn->query($sql_hotel)){
+            //success
+          }
+        }
+      }
+      elseif($h_type == 'International'){
+        $sql_int = "INSERT INTO itinerary_inter (ghrno) VALUES('$ref_num')";
+        if($conn->query($sql_int)){
+          $sql_hotel = "INSERT INTO hotels_inter (ghrnno,sno) VALUES ('$ref_num',$sno)";
+          if($conn->query($sql_hotel)){
+            //success
+          }
+        }
+      }
+      $sql_flights = "INSERT INTO flights_info (ghrno,sno,airtrav) VALUES ('$ref_num',$sno,'$total_pass')";
+      if($conn->query($sql_flights)){
+        //flight inserted
+      }
+      $sql_design = "INSERT INTO designdetails (ghrno) VALUES ('$ref_num')";
+      if($conn->query($sql_design)){
+        //inserted into design itineraries
+      }
+      $sql_notif = "UPDATE login SET notif_count =notif_count + 1 WHERE handle_type IN ('$holi_type','Both')";
+      if($conn->query($sql_notif)){
+        //updated notification
+        //add redirect
+      }
+    }
+    else{
+      //add code for creating an empty row
+      
+    }
 }
 ?>
