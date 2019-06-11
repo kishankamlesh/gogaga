@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sales Registration!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="st_sales_reg_page.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id = 'top_box' class='container-fluid' style = 'box-shadow:0px 5px grey;'>
+      <a href="https://www.gogagaholidays.com"><img src="logonew.png" alt="Company Logo" id = 'logo'></a>
+      <p style = 'float:right; color:white; display:inline; margin-top:1.5%;'><strong>Manager Registration Form</strong></p>
+    </div>
+    <div class="container">
+      <br>
+      <h3>Sales Manager Registration Form</h3>
+    <p><small>Hey there! Let's get you into our databases before you start smashing those sales figures, shall we? <i>Almost</i> all fields are mandatory!</small></p>
+      <div class="container">
+        <form class="" action="reg.php" method="post">
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="m_id">Manager ID: <span class ='req'>*</span> </label>
+
+              <input type="text" name="m_id" id = 'm_id'class = 'form-control' placeholder="Enter Manager ID e.g GHXXXX" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="fu_name">Full Name: <span class ='req'>*</span> </label>
+              <input type="text" name="full_name" id = 'fu_name'class = 'form-control' placeholder="Enter Full name" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="d_name">Display Name: <span class ='req'>*</span> </label>
+              <input type="text" name="d_name" id = 'd_name'class = 'form-control' placeholder="Enter Display name" required>
+              <small>This Name shall be displayed on your dashboard, choose wisely!</small>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="email">Email: <span class ='req'>*</span> </label>
+              <input type="email" name="email" id = 'email' class = 'form-control' placeholder="Enter email ID" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="dob">Date of Birth: <span class ='req'>*</span> </label>
+              <input type="text" name="dob" id = 'dob'class = 'form-control' placeholder="Enter Date of birth (YYYY-MM-DD)" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="m_type">Member Type: <span class ='req'>*</span> </label>
+              <input type="text" name="m_type" id = 'm_type' class = 'form-control' value = 'Sales' required readonly>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="h_type">Handle Type: <span class ='req'>*</span> </label>
+              <input type="text" name="h_type" id = 'h_type' class = 'form-control' value = 'Both' placeholder="Both (Domestic & International)" required readonly>
+              <small>Both handle type indicates you'll be dealing with Domestic as well as International Itineraries</small>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="u_type">User Type: <span class ='req'>*</span> </label>
+              <select class="form-control" id = 'u_type' name="user_t">
+                <option value=" ">Select User Type</option>
+                <option value="salesmanager">Sales Manager</option>
+                <option value="areamanager">Area Manager</option>
+                <option value="regionalmanager">Regional Manager</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="uid">User ID: <span class ='req'>*</span> </label>
+              <input type="text" name="uid" id = 'uid' class = 'form-control' placeholder="user@gogagaholidays.in"required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="pass" id ='l_pass'>Password: </label>
+              <input type="password" name="pass" id = 'pass' class = 'form-control' placeholder="Shhhh! Type Quietly and we'll encrypt it, don't worry!">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="c_num">Contact Number: <span class ='req'>*</span></label>
+              <input type="text" name="c_num" id = 'c_num' class = 'form-control' placeholder="Example: 8770456987 (Not that you need it!)"required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="dis">District: <span class ='req'>*</span></label>
+              <input type="text" name="dis" id = 'dis' class = 'form-control' placeholder="District of Operation" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="state">State: <span class ='req'>*</span></label>
+              <input type="text" name="state" id = 'state' class = 'form-control' placeholder="State of Operation" required>
+            </div>
+          </div>
+          <div class="form-row" id = "am_name">
+            <div class="form-group col-md-12">
+              <label for="am_name"><span id = 'desg'> Area </span>Manager Name: <span class ='req'>*</span> </label>
+              <select class="form-control" id = 'am_name' name="am_name">
+                <option value=" ">Select Area Manager name</option>
+                <option value="Sanjeev Reddy">Sanjeev Reddy</option>
+                <option value="Seshu Das Garapati">Seshu Das Garapati</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row hidden" id = "rm_name">
+            <div class="form-group col-md-12">
+              <label for="rm_name">Regional Manager Name: <span class ='req'>*</span> </label>
+              <select class="form-control" id = 'am_name' name="rm_name">
+                <option value=" ">Select Regional Manager name</option>
+                <option value="Kiran Kumar Mallapuram">Kiran Kumar Mallapuram</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-4">
+              <button type="submit" name="submit" class = 'form-control btn btn-lg btn-success' data-toggle="tooltip" data-placement="top" title="One Click away!">Create Account</button>
+            </div>
+            <div class="form-group col-4">
+
+            </div>
+            <div class="form-group col-4">
+              <button type="reset" name="res" class = 'form-control btn btn-sm btn-danger' data-toggle="tooltip" data-placement="top" title="Sure About this!?">Reset</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src ='s_sales_reg_page.js'></script>
+  </body>
+</html>

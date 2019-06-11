@@ -1,0 +1,29 @@
+#top_box{
+  height: 70px;
+  background-color: black;
+}
+body{
+  font-family: 'Raleway', sans-serif;
+  background-color: #F5F5F5;
+}
+#logo{
+  margin-top: 15px;
+}
+h3,h5{
+  font-weight: bold;
+}
+.section{
+  margin-top:1.5%;
+  padding-left:1.5%;
+  padding-right: 0.5%;
+  padding-top:0.5%;
+  border: 2px dashed lightgrey;
+  border-radius: 6px;
+}
+#l_file{
+	margin-left:1.25%;
+	margin-right: 1.5%;
+}
+#sub_but{
+  margin-top: 10%;
+}

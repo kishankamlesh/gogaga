@@ -1,0 +1,28 @@
+#top_box{
+  height: 70px;
+  background-color: black;
+}
+body{
+  font-family: 'Raleway', sans-serif;
+  background-color: #F5F5F5;
+  padding:0;
+}
+#logo{
+  margin-top: 15px;
+}
+h3,h5{
+  font-weight: bold;
+}
+.req{
+  color:red;
+  font-size: 20px;
+}
+.s_pg{
+  font-weight: 1000;
+  font-size: 20px;
+  margin-top: 20%;
+}
+.sym{
+  text-align: bold;
+  font-size: 40px;
+}

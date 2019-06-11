@@ -1,0 +1,21 @@
+#top_box{
+  height: 70px;
+  background-color: black;
+}
+body{
+  font-family: 'Raleway', sans-serif;
+  background-color: #F5F5F5;
+}
+#logo{
+  margin-top: 15px;
+}
+h3,h5{
+  font-weight: bold;
+}
+.req{
+  color:red;
+  font-size: 20px;
+}
+.hidden{
+  display:none;
+}

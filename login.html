@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="st_login.css">
+  </head>
+  <body>
+      <div id = 'top_box' class='container-fluid' style = 'box-shadow:0px 5px grey;'>
+        <a href="https://www.gogagaholidays.com"><img src="logonew.png" alt="Company Logo" id = 'logo'></a>
+        <p style = 'float:right; color:white; display:inline; margin-top:1.5%;'><strong>Login Portal</strong></p>
+      </div>
+      <div class="container">
+        <br>
+        <h3>Login Portal</h3>
+        <form class="" action="log.php" method="post">
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="log_id">Login ID: <span class ='req'>*</span> </label>
+              <input type="text" name="log_id" id = 'log_id'class = 'form-control' placeholder="Enter username" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="pwd">Password: <span class ='req'>*</span> </label>
+              <input type="password" name="pwd" id = 'pwd'class = 'form-control' placeholder="Enter password" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-4">
+            </div>
+            <div class="form-group col-4">
+              <button type="submit" name="submit" class = 'form-control btn btn-lg btn-success' data-toggle="tooltip" data-placement="top" title="One Click away!">Login</button>
+            </div>
+            <div class="form-group col-4">
+            </div>
+          </div>
+        </form>
+      </div>
+  </body>
+</html>
