@@ -11,8 +11,9 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-//customer details section
-$c_type = test_input($_POST["cu_type"]);
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  if(isset($_POST["submit"])){
+    $c_type = test_input($_POST["cu_type"]);
 $c_fname =  test_input($_POST["cu_fname"]);
 $c_lname =  test_input($_POST["cu_lname"]);
 $c_phone =  test_input($_POST["cu_phone"]);
@@ -135,7 +136,27 @@ if($ghrno == 'newform'){
     }
     else{
       //add code for creating an empty row
+      $sql ="UPDATE  agent_form_data
+              SET c_type = '".$c_type."',p_type = '".$p_type."',form_filled_by = '".$name."', holi_partner_name = '".$p_type."',
+              holi_partner_loc = '".$p_loc."', sales_partner_name = '".$p_name."', sales_partner_loc = '" "', cust_firstname = '".$c_fname."',
+              cust_lastname = '".$c_lname."', contact_phone = '".$c_phone."', preferred_time = '".$c_ttc."', cust_addr = '".$c_loc."', cust_email = '".$c_em."',
+              trip_start_loc = '".$t_origin."', holi_dest = '".$t_dest."', holi_type = '".$h_type."', date_of_travel = '".$t_start_date."', return_date_of_travel = '".$t_end_date."',
+              duration = '".$t_duration."', no_of_adults = '".$n_adults."', no_of_childs = '".$n_children."', no_of_infants = '".$n_infants."', child_ages = '".$c_age."',
+              travel_mode = '".$tr_mode."', travel_from = '".$t_from."', travel_to = '".$t_to."', type_hotel = '".$hotel_st."', acc_type = '".$acc_type."',
+              no_rooms = '".$num_rooms."', additional_details = '".$additional_det."', food_pref = '".$food_pref."', specific_food_pref = '".$sp_food_pref."', sight_pref = '".$sight_s_pref."', budget = '".$budget."',
+              lead_status = '".$lead_status."' WHERE ref_num = '".$ghrnno."'
+                    ";
 
+                     if(($conn->query($sql))== true)
+                     {
+                        header('location:../view_itinerary.php?q='.$ghrnno);
+                     }
+                     else
+                     {
+                        header('location:../view_itinerasdsaary.php?q='.$ghrnno);
+                     }
+                  }
     }
+  }
 }
 ?>
