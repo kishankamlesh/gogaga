@@ -127,6 +127,10 @@ if($ghrno == 'newform'){
       if($conn->query($sql_notif)){
         //updated notification
         //add redirect
+        header('Location:success.html');
+      }
+      else{
+        header('Location:failure.html');
       }
     }
     else{
