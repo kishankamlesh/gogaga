@@ -60,7 +60,14 @@ if($res_m_type->num_rows){
         });
       }
       else if((m_type == 'salesmanager') && (par_type == 'superpartner')){
-        $("#p_sel").html("<option value = '0'>No Super Partners</option>");
+        $.ajax({
+          type: "POST",
+          url: "sup_id.php",
+          data: 'sp_id='+id,
+          success: function(data){
+            $("#p_sel").html(data);
+          }
+        });
       }
       else if((m_type == 'areamanager') && (par_type == 'salespartner')){
         $.ajax({
@@ -134,7 +141,7 @@ if($res_m_type->num_rows){
       <h3>Itinerary Request Form</h3>
       <p><small>Please Fill in the details below for our executives to be able to get on with the process of follow-up and itinerary creation!</small></p>
       <div class="container">
-        <form class="" action="" method="post">
+        <form class="" action="ins_frm_dat.php" method="post">
           <div class="section">
             <h2>Manager Details</h2>
             <div class="form-group row">
@@ -238,9 +245,9 @@ if($res_m_type->num_rows){
               <div class="col-md-10">
                 <select class="custom-select" name="pack_type" id = 'pack_type'>
                   <option>Choose Package Type</option>
-                  <option value="Flight">Budget</option>
-                  <option value="Bus">Standard</option>
-                  <option value="Own">Premium</option>
+                  <option value="Budget">Budget</option>
+                  <option value="Standard">Standard</option>
+                  <option value="Premium">Premium</option>
                 </select>
               </div>
             </div>
@@ -339,13 +346,14 @@ if($res_m_type->num_rows){
                 <select class="custom-select" name="t_end_y" id = 'h_end_y'>
                   <option value="">Year</option>
                   <?php
-                    $x=1;
-                    while($x <= 31)
-                      {
-                        echo "<option>".$x."</option>";
-                        $x++;
-                      }
-                  ?>
+                    $x=date("Y");
+                    $y=$x+10;
+                    while($x <= $y)
+                        {
+                          echo "<option>".$x."</option>";
+                          $x++;
+                        }
+                    ?>
                 </select>
               </div>
             </div>
@@ -478,6 +486,17 @@ if($res_m_type->num_rows){
               <div class="col-md-5">
                 <input type="radio" id="l_status_c" name="l_status" class="custom-control-input" value = "Cold">
                 <label class="custom-control-label" for="l_status_c">Cold</label>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="emi" class="col-sm-2 col-form-label">Bajaj EMI Card:</label>
+              <div class="col-md-5">
+                <input type="radio" id="emi_y" name="b_emi" class="custom-control-input" value = 'Yes'>
+                <label class="custom-control-label" for="emi_y">Yes (Bajaj EMI Card Holder)</label>
+              </div>
+              <div class="col-md-5">
+                <input type="radio" id="emi_n" name="b_emi" class="custom-control-input" value = "No">
+                <label class="custom-control-label" for="emi_n">No (No such Information Available)</label>
               </div>
             </div>
           </div>

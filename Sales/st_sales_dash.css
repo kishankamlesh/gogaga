@@ -4,8 +4,7 @@
   background-color: #343940;
   color:white;
   background-image: url("n_back.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 .links{
   margin-left:2%;
@@ -53,4 +52,17 @@ body{
 }
 .graph{
   margin-left: 22%;
+}
+.section{
+  margin-top:1.5%;
+  padding-left:1.5%;
+  padding-right: 0.5%;
+  padding-top:0.5%;
+  border: 2px dashed lightgrey;
+  border-radius: 6px;
+  width:90%;
+  margin-left: 5%;
+}
+.hidden{
+  display:none;
 }

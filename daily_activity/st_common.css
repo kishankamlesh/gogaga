@@ -33,3 +33,15 @@ h3,h5{
 .top_exec li{
 	line-height: 2rem;
 }
+.hidden{
+	display:none;
+}
+.s_pg{
+  margin-top: 30%;
+  font-weight: 1000;
+  font-size: 20px;
+}
+.sym{
+  margin-left: 40%;
+  font-size: 80px;
+}

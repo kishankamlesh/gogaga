@@ -2,7 +2,7 @@ $(document).ready(function(){
   $("#p_sel").change(function(){
     var part = $("#p_sel").val();
     $("#p_name").val(part);
-  })
+  });
   $("#h_name").change(function(){
     var part_i = $("#h_name").val();
     $("#hp_name").val(part_i);

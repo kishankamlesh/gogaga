@@ -18,9 +18,23 @@ session_start();
   $res_dat = $conn->query($sql_dat);
   if($res_dat->num_rows){
   	while($row_dat = $res_dat->fetch_assoc()){
-  		$doj = $row_dat["date_of_joining"];
-  		$am_name = $row_dat["area_manager_name"];
-  		$d_name = $row_dat["disp_name"];
+  		if($type == "salesmanager"){
+		  	$d_type = "Sales Manager";
+		  	$doj = $row_dat["date_of_joining"];
+  			$am_name = $row_dat["area_manager_name"];
+  			$d_name = $row_dat["disp_name"];
+		 }
+		  else if($type == "areamanager"){
+		  	$d_type = "Area Manager";
+		  	$doj = $row_dat["d_o_join"];
+  			$am_name = $row_dat["reg_m_name"];
+  			$d_name = $row_dat["disp_name"];
+		 }
+		  else if($type == "regionalmanager"){
+		  	$d_type = "Regional Manager";		  	
+		  	$doj = $row_dat["d_o_join"];
+  			$d_name = $row_dat["disp_name"];
+		 }  		  	
   	}
   }
   //display data
